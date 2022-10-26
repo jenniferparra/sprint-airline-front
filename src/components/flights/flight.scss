@@ -1,8 +1,8 @@
-.container-fluid {
+.flight-container {
     background-color:rgb(242, 251, 255);
     padding: 40px 40px 40px;
     margin: 0;
-    height: 100vh;
+    height: 100%;
 }
 .btn {
     &-change{
@@ -53,4 +53,8 @@
     color: rgb(167, 167, 167);
     font-size: 14px;
     margin-top: -8px;
+}
+.reservation {
+    background-color: #fff;
+    padding: 5px;
 }

@@ -121,7 +121,7 @@ const Header = () => {
                             <div className="form-group">
                                 <label for="exampleFormControlSelect1">Pasajeros</label>
                                 <select class="form-control" id="exampleFormControlSelect1"
-                                    name='passenger' >
+                                    name='passenger'>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>

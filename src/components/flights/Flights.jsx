@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 // import { protectedRoute } from '../../utils/session'
@@ -8,7 +8,7 @@ import './flight.scss'
 
 const Flights = () => {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   //   const [reload, setReload] = useState(false)
 
   //   const handleCloseSession = () => {
@@ -22,7 +22,7 @@ const Flights = () => {
 
   return (
     <>
-      <div className='container-fluid row g-4'>
+      <div className='container-fluid flight-container row g-4'>
 
         {/* contenedor de la parte de equipaje */}
         <div className='col-sm-8'>
@@ -36,7 +36,7 @@ const Flights = () => {
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
-              <button class="btn btn-change">Cambiar Vuelo</button>
+             <button onClick={() => navigate('/')} class="btn btn-change">Cambiar Vuelo</button>
             </div>
           </div>
 
@@ -66,12 +66,10 @@ const Flights = () => {
               <p className='bag__price'>$200,000 COP</p>
             </div>
           </div>
-        </div>
-
-        <div className='col-sm-8'>
+      
 
           {/* contenedor de título y botón de cambiar vuelo */}
-          <div className='d-flex justify-content-between'>
+          <div className='d-flex justify-content-between mt-5'>
             <div>
               <h2><strong>Vuelo de Regreso</strong></h2>
               <h3 className='mt-4'>Martes 25 Dic 2022</h3>
@@ -79,7 +77,7 @@ const Flights = () => {
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
-              <button class="btn btn-change">Cambiar Vuelo</button>
+              <button onClick={() => navigate('/')} class="btn btn-change">Cambiar Vuelo</button>
             </div>
           </div>
 
@@ -112,12 +110,45 @@ const Flights = () => {
         </div>
 
         {/* conteneder de la información del vuelo */}
-        <div className='col-sm-4'>
-          <p>LfsdfsadLine 1:17:  'useEffect' is defined but never used    no-unused-vars
-            Line 1:28:  'useState' is defined but never used     no-unused-vars
-            Line 2:18:  'useNavigate' is defined but never usedfsdfsdfo</p>
-
+        <div className='col-sm-4 column mt-0'>
+          <h6>Tu reservación</h6>
+          {/* contenedor información del vuelo */}
+          <div className='reservation rounded'>
+          <div className='d-flex justify-content-between'>
+          <p>Pasajeros</p>
+          <p>1 Adulto</p>
+          </div>
+          <p>Vuelo de salida</p>
+          <div className='row'>
+          <h2 className='col-sm-4'>CO</h2>
+          <h2 className='col-sm-4'>CH</h2>
+          </div>
+          <div className='row'>
+          <p className='col-sm-4 mt-0 title__country'>05:45 PM</p>
+          <p className='col-sm-4 mt-0 title__country'>06:47 PM</p>
+          </div>
+          <p>Martes, 30 noviembre, 2022</p>
+          </div>
+          <h6 className='mt-5'>Costo de vuelo</h6>
+          {/* contenedor costo de vuelo */}
+          <div className='reservation rounded'>
+          <div  className='d-flex justify-content-between'>
+          <p>Tarifa base</p>
+          <p>$700,000 COP</p>
+          </div>
+          <div  className='d-flex justify-content-between'>
+          <p>Descuento promocional</p>
+          <p>$50,000</p>
+          </div>
+          <div  className='d-flex justify-content-between'>
+          <p>Total</p>
+          <p>$650,000</p>
+          </div>
+        
+      </div>
         </div>
+
+          
       </div>
       <Outlet />
     </>
