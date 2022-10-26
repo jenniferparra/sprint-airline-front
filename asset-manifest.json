@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/jenniferparra/sprint-airline-front.git/static/css/main.24631abb.css",
+    "main.js": "/jenniferparra/sprint-airline-front.git/static/js/main.b06d9194.js",
+    "static/media/airplane_wing.jpeg": "/jenniferparra/sprint-airline-front.git/static/media/airplane_wing.886b63a81e871327eabf.jpeg",
+    "index.html": "/jenniferparra/sprint-airline-front.git/index.html",
+    "main.24631abb.css.map": "/jenniferparra/sprint-airline-front.git/static/css/main.24631abb.css.map",
+    "main.b06d9194.js.map": "/jenniferparra/sprint-airline-front.git/static/js/main.b06d9194.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.24631abb.css",
+    "static/js/main.b06d9194.js"
+  ]
+}
