@@ -5,12 +5,13 @@ import Header from '../header/Header'
 import '../style.scss'
 
 
+
 const Home = () => {
 
     return (
         <>
         <Header />
-
+        
         </>
     )
 }

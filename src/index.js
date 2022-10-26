@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './components/home/Home';
+import Router from './routes/Router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Home />
+    <Router />
 );
