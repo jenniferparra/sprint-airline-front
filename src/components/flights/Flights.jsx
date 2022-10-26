@@ -90,22 +90,22 @@ const Flights = () => {
             <p className='col hour d-flex flex-column align-items-center'>6 AM</p>
 
             {/* contenedor de cuadro de maleta  */}
-            // <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
-            //   <img src={briefcase} alt='briefcase icon'></img>
-            //   <p className='bag__text'>1 objeto personal</p>
-            //   <p className='bag__price'>$50,000 COP</p>
-            // </div>
-            // <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
-            //   <img src={briefcase} alt='briefcase icon'></img>
+            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
+              <p className='bag__text'>1 objeto personal</p>
+              <p className='bag__price'>$50,000 COP</p>
+            </div>
+            <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
 
-            //   <p className='bag__text'>Equipaje de mano</p>
-            //   <p className='bag__price'>$100,000 COP</p>
-            // </div>
-            // <div className='col bag d-flex rounded flex-column align-items-center'>
-            //   <img src={briefcase} alt='briefcase icon'></img>
-            //   <p className='bag__text'>Equipaje 25kg</p>
-            //   <p className='bag__price'>$200,000 COP</p>
-            // </div>
+              <p className='bag__text'>Equipaje de mano</p>
+              <p className='bag__price'>$100,000 COP</p>
+            </div>
+            <div className='col bag d-flex rounded flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
+              <p className='bag__text'>Equipaje 25kg</p>
+              <p className='bag__price'>$200,000 COP</p>
+            </div>
           </div>
         </div>
 
