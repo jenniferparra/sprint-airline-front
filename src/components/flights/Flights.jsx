@@ -1,24 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
 // import { protectedRoute } from '../../utils/session'
-// import Header from '../header/Header';
 import './flight.scss'
+import briefcase from '../../images/icons/briefcase.svg'
 
 const Flights = () => {
 
   const navigate = useNavigate();
-  //   const [reload, setReload] = useState(false)
 
-  //   const handleCloseSession = () => {
-  //     sessionStorage.clear();
-  //     setReload(!reload)
-  //   }
+    const bagType = ["1 objeto personal", "Equipaje de mano", "Equipaje 25kg"]
 
-  //   useEffect(() => {
-  //     protectedRoute(navigate)
-  //   }, [reload])
+    const bagPrice = ["$50,000 COP", "$100,000 COP", "$200,000 COP"]
 
   return (
     <>
@@ -36,7 +30,7 @@ const Flights = () => {
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
-             <button onClick={() => navigate('/')} class="btn btn-change">Cambiar Vuelo</button>
+              <button onClick={() => navigate('/')} class="btn btn-change">Cambiar Vuelo</button>
             </div>
           </div>
 
@@ -54,19 +48,22 @@ const Flights = () => {
 
             {/* contenedor de cuadro de maleta  */}
             <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>1 objeto personal</p>
               <p className='bag__price'>$50,000 COP</p>
             </div>
             <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>Equipaje de mano</p>
               <p className='bag__price'>$100,000 COP</p>
             </div>
             <div className='col bag d-flex rounded flex-column align-items-center'>
+              <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>Equipaje 25kg</p>
               <p className='bag__price'>$200,000 COP</p>
             </div>
           </div>
-      
+
 
           {/* contenedor de título y botón de cambiar vuelo */}
           <div className='d-flex justify-content-between mt-5'>
@@ -84,7 +81,6 @@ const Flights = () => {
           {/* contenedor de cuadro blanco */}
           <div className='row rounded g-2 shadow-lg bg-body p-3 d-flex align-items-center'>
             <p className='col hour d-flex flex-column align-items-center'>11 PM</p>
-
             <div className='col scale  '>
               <p className='scale__text'>7 horas</p>
               <hr></hr>
@@ -94,18 +90,22 @@ const Flights = () => {
             <p className='col hour d-flex flex-column align-items-center'>6 AM</p>
 
             {/* contenedor de cuadro de maleta  */}
-            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
-              <p className='bag__text'>1 objeto personal</p>
-              <p className='bag__price'>$50,000 COP</p>
-            </div>
-            <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
-              <p className='bag__text'>Equipaje de mano</p>
-              <p className='bag__price'>$100,000 COP</p>
-            </div>
-            <div className='col bag d-flex rounded flex-column align-items-center'>
-              <p className='bag__text'>Equipaje 25kg</p>
-              <p className='bag__price'>$200,000 COP</p>
-            </div>
+            // <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
+            //   <img src={briefcase} alt='briefcase icon'></img>
+            //   <p className='bag__text'>1 objeto personal</p>
+            //   <p className='bag__price'>$50,000 COP</p>
+            // </div>
+            // <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
+            //   <img src={briefcase} alt='briefcase icon'></img>
+
+            //   <p className='bag__text'>Equipaje de mano</p>
+            //   <p className='bag__price'>$100,000 COP</p>
+            // </div>
+            // <div className='col bag d-flex rounded flex-column align-items-center'>
+            //   <img src={briefcase} alt='briefcase icon'></img>
+            //   <p className='bag__text'>Equipaje 25kg</p>
+            //   <p className='bag__price'>$200,000 COP</p>
+            // </div>
           </div>
         </div>
 
@@ -114,41 +114,43 @@ const Flights = () => {
           <h6>Tu reservación</h6>
           {/* contenedor información del vuelo */}
           <div className='reservation rounded'>
-          <div className='d-flex justify-content-between'>
-          <p>Pasajeros</p>
-          <p>1 Adulto</p>
-          </div>
-          <p>Vuelo de salida</p>
-          <div className='row'>
-          <h2 className='col-sm-4'>CO</h2>
-          <h2 className='col-sm-4'>CH</h2>
-          </div>
-          <div className='row'>
-          <p className='col-sm-4 mt-0 title__country'>05:45 PM</p>
-          <p className='col-sm-4 mt-0 title__country'>06:47 PM</p>
-          </div>
-          <p>Martes, 30 noviembre, 2022</p>
+            <div className='d-flex justify-content-between'>
+              <p>Pasajeros</p>
+              <p>1 Adulto</p>
+            </div>
+            <p>Vuelo de salida</p>
+            <div className='row'>
+              <h2 className='col-sm-4'>CO</h2>
+              <h2 className='col-sm-4'>CH</h2>
+            </div>
+            <div className='row'>
+              <p className='col-sm-4 mt-0 title__country'>05:45 PM</p>
+              <p className='col-sm-4 mt-0 title__country'>06:47 PM</p>
+            </div>
+            <p>Martes, 30 noviembre, 2022</p>
           </div>
           <h6 className='mt-5'>Costo de vuelo</h6>
           {/* contenedor costo de vuelo */}
           <div className='reservation rounded'>
-          <div  className='d-flex justify-content-between'>
-          <p>Tarifa base</p>
-          <p>$700,000 COP</p>
+            <div className='d-flex justify-content-between'>
+              <p>Tarifa base</p>
+              <p>$700,000 COP</p>
+            </div>
+            <div className='d-flex justify-content-between'>
+              <p>Descuento promocional</p>
+              <p>$50,000</p>
+            </div>
+            <div className='d-flex justify-content-between'>
+              <p>Total</p>
+              <p>$650,000</p>
+            </div>
+
           </div>
-          <div  className='d-flex justify-content-between'>
-          <p>Descuento promocional</p>
-          <p>$50,000</p>
-          </div>
-          <div  className='d-flex justify-content-between'>
-          <p>Total</p>
-          <p>$650,000</p>
-          </div>
-        
-      </div>
+          <div class="d-flex justify-content-center "><button onClick={() => navigate('seats')} type="submit" class="btn btn-submit mt-5">Seleccionar asientos</button> </div>
+          
         </div>
 
-          
+
       </div>
       <Outlet />
     </>

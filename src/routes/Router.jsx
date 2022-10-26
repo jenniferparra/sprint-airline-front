@@ -8,6 +8,7 @@ import Flights from "../components/flights/Flights";
 
 // import Header from "../components/header/Header";
 import Home from "../components/home/Home";
+import Seats from "../components/seats/Seats";
 
 const Router = () => {
     return (
@@ -15,6 +16,8 @@ const Router = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="flights" element={<Flights />} />
+                <Route path="flights/seats" element={<Seats />} />
+
 
             </Routes>
         </BrowserRouter>

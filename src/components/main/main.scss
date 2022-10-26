@@ -1,0 +1,10 @@
+.rnd {
+    border-radius: 20px;
+
+}
+@media screen and (max-width: 500px) {
+.pago {
+    display: flex;
+    flex-direction: column;
+}
+}

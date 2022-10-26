@@ -6,6 +6,7 @@ import useForm from '../../hooks/useForm';
 import { getFlight } from '../../services/flights';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom'
+import plane from '../../images/icons/plane.svg'
 
 const Header = () => {
 
@@ -72,6 +73,7 @@ const Header = () => {
                                     onChange={handleChangeInput}
 
                                     >
+                                    <option>-----</option>
                                     <option>Colombia</option>
                                     <option>Ciudad de México</option>
                                     <option>Argentina</option>
@@ -86,6 +88,7 @@ const Header = () => {
                                     onChange={handleChangeInput}
 
                                     >
+                                    <option>-----</option>
                                     <option>Nueva York</option>
                                     <option>Brasil</option>
                                     <option>Canadá</option>
@@ -122,6 +125,7 @@ const Header = () => {
                                 <label for="exampleFormControlSelect1">Pasajeros</label>
                                 <select class="form-control" id="exampleFormControlSelect1"
                                     name='passenger'>
+                                    <option>-----</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -130,7 +134,7 @@ const Header = () => {
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-submit">Buscar vuelos</button>
+                        <button type="submit" class="btn btn-submit"><img className='me-2'src={plane} alt='plane icon'></img>Buscar vuelos</button>
                     </form>
 
                 </div>
