@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap'
@@ -7,12 +7,27 @@ import './flight.scss'
 import briefcase from '../../images/icons/briefcase.svg'
 
 const Flights = () => {
+  const flight = JSON.parse(sessionStorage.getItem("flight")) || [];
+
 
   const navigate = useNavigate();
 
-    const bagType = ["1 objeto personal", "Equipaje de mano", "Equipaje 25kg"]
-
-    const bagPrice = ["$50,000 COP", "$100,000 COP", "$200,000 COP"]
+  const [valor, setValor] = useState(0);
+  const getFlight = (element) => {
+    console.log(element);
+    //setPasaje(element);
+  };
+  const changeValor = (item) => {
+    if (item === "bagA") {
+      setValor('$50,000');
+    }
+    if (item === "bagB") {
+      setValor('$100,000');
+    }
+    if (item === "bagC") {
+      setValor('$200,000');
+    }
+  };
 
   return (
     <>
@@ -25,8 +40,13 @@ const Flights = () => {
           <div className='title d-flex justify-content-between'>
             <div>
               <h2><strong>Vuelo de Salida</strong></h2>
-              <h3 className='mt-4'>Martes 30 Nov 2022</h3>
-              <p className='title__country'>Colombia (CO) a Suiza</p>
+              {flight.map ((element, index) => (
+                <>
+                <h3 className='mt-4'>{element.departure}</h3>
+                <p className='title__country'>{element.origin} a {element.destiny}</p>
+                </>
+              ))}
+
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
@@ -36,41 +56,58 @@ const Flights = () => {
 
           {/* contenedor de cuadro blanco */}
           <div className='row rounded g-2 shadow-lg bg-body p-3 d-flex align-items-center'>
-            <p className='col hour d-flex flex-column align-items-center'>5:50PM</p>
+          {flight.map ((element, index) => (
+            <>
+            <p className='col hour d-flex flex-column align-items-center'>{element.timeDeparture}</p>
 
             <div className='col scale  '>
-              <p className='scale__text'>7 horas</p>
+              <p className='scale__text'>{element.duration}</p>
               <hr></hr>
               <p className='scale__text'>Sin escala</p>
             </div>
 
-            <p className='col hour d-flex flex-column align-items-center'>6:47 PM</p>
+            <p className='col hour d-flex flex-column align-items-center'>{element.timeArrival}</p>
 
             {/* contenedor de cuadro de maleta  */}
-            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
+            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'
+            onClick={() => {
+              changeValor("bagA");
+            }}>
               <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>1 objeto personal</p>
               <p className='bag__price'>$50,000 COP</p>
             </div>
-            <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
+            <div className='col me-2 rounded bag d-flex flex-column align-items-center' 
+            onClick={() => {
+              changeValor("bagB");
+            }}>
               <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>Equipaje de mano</p>
               <p className='bag__price'>$100,000 COP</p>
             </div>
-            <div className='col bag d-flex rounded flex-column align-items-center'>
+            <div className='col bag d-flex rounded flex-column align-items-center'
+            onClick={() => {
+              changeValor("bagC");
+            }}>
               <img src={briefcase} alt='briefcase icon'></img>
               <p className='bag__text'>Equipaje 25kg</p>
               <p className='bag__price'>$200,000 COP</p>
             </div>
+            </>
+          ))}
+          
           </div>
 
-
+            // vuelo de regreso
           {/* contenedor de título y botón de cambiar vuelo */}
           <div className='d-flex justify-content-between mt-5'>
             <div>
               <h2><strong>Vuelo de Regreso</strong></h2>
               <h3 className='mt-4'>Martes 25 Dic 2022</h3>
-              <p className='title__country'>Suiza a Colombia</p>
+              {flight.map ((element, index) => (
+                <p className='title__country'>{element.destiny} a {element.origin}</p>
+
+              ))}
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
@@ -137,8 +174,8 @@ const Flights = () => {
               <p>$700,000 COP</p>
             </div>
             <div className='d-flex justify-content-between'>
-              <p>Descuento promocional</p>
-              <p>$50,000</p>
+              <p>Equipaje</p>
+              <p>{valor}</p>
             </div>
             <div className='d-flex justify-content-between'>
               <p>Total</p>

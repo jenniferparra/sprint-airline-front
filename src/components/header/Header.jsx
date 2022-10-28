@@ -11,33 +11,30 @@ import plane from '../../images/icons/plane.svg'
 const Header = () => {
 
     const navigate = useNavigate();
-    const [dataForm, handleChangeInput, reset] = useForm({
-        origin: '',
-        destiny: ''
+    const [dataForm, handleChangeInput] = useForm({
+        origin: "",
+        destiny: "",
+        departure: "",
+        arrival: ""
     });
 
-    // useEffect(() => {
-    //     //redirect if not session
-    //     redirectUser(navigate);
-    // }, [])
-
     const filteredFlight = async (dataForm) => {
-        const response = await getFlight(dataForm.origin, dataForm.destiny);
+        const response = await getFlight(dataForm);
+        console.log(response);
 
         if (response.length) {
-            sessionStorage.setItem('flight', JSON.stringify(response[0]));
+            sessionStorage.setItem('flight', JSON.stringify(response));
             navigate('flights');
         } else {
             Swal.fire('No hay vuelos disponibles, por favor intente más tarde');
-            reset();
         }
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(dataForm);
 
-        if (dataForm.origin !== '' && dataForm.destiny !== '' && dataForm.departureDate !== '' && dataForm.arrivalDate !== '' && dataForm.passenger !== '') {
-            console.log("aaa")
+        if (dataForm.origin !== '' && dataForm.destiny !== '' && dataForm.departure !== '' && dataForm.arrival !== '' && dataForm.passenger !== '') {
             await filteredFlight(dataForm)
 
         } else {
@@ -59,10 +56,10 @@ const Header = () => {
                         <h1>Busca un nuevo destino y comienza la aventura</h1>
                         <p>Descubre vuelos al mejor precio y perfectos para cualquier viaje</p>
                         <div className='col-sm-auto activado rounded g-2 column'>
-                            <input type="radio" className="btn-check" name="options" id="option1" autocomplete="off" ></input>
+                            <input type="radio" className="btn-check" name="options" id="option1" autocomplete="off" required></input>
                             <label className="btn btn-trip" for="option1">Viaje redondo</label>
 
-                            <input type="radio" className="btn-check" name="options" id="option2" autocomplete="off" ></input>
+                            <input type="radio" className="btn-check" name="options" id="option2" autocomplete="off" required></input>
                             <label className="btn btn-trip" for="option2">Viaje sencillo</label>
                         </div>
 
@@ -101,21 +98,23 @@ const Header = () => {
                             <div className='input-group col'>
                                 <input
                                     type="date"
-                                    name='departureDate'
+                                    name='departure'
                                     className="form-control"
                                     aria-label="Salida"
                                     aria-describedby="date"
                                     placeholder='Salida'
+                                    onChange={handleChangeInput}
                                      />
 
                             </div>
                             <div className='input-group col'>
                                 <input
                                     type="date"
-                                    name='arrivalDate'
+                                    name='arrival'
                                     className="form-control"
                                     aria-label="Regreso"
                                     aria-describedby="date"
+                                    onChange={handleChangeInput}
                                      />
 
                             </div>

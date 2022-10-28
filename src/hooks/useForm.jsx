@@ -11,11 +11,11 @@ const useForm = (initialState = {}) => {
         })
     }
 
-    const reset = () => {
-        setDataForm(initialState)
-    }
+    // const reset = () => {
+    //     setDataForm(initialState)
+    // }
 
-  return [dataForm, handleChangeInput, reset]
+  return [dataForm, handleChangeInput]
 }
 
 export default useForm
