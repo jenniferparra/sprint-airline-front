@@ -13,7 +13,9 @@ const Header = () => {
     const navigate = useNavigate();
     const [dataForm, handleChangeInput, reset] = useForm({
         origin: '',
-        destiny: ''
+        destiny: '',
+        departure: '',
+        arrival: ''
     });
 
     // useEffect(() => {
@@ -25,7 +27,7 @@ const Header = () => {
         const response = await getFlight(dataForm.origin, dataForm.destiny);
 
         if (response.length) {
-            sessionStorage.setItem('flight', JSON.stringify(response[0]));
+            sessionStorage.setItem('flight', JSON.stringify(response));
             navigate('flights');
         } else {
             Swal.fire('No hay vuelos disponibles, por favor intente más tarde');
@@ -36,7 +38,7 @@ const Header = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (dataForm.origin !== '' && dataForm.destiny !== '' && dataForm.departureDate !== '' && dataForm.arrivalDate !== '' && dataForm.passenger !== '') {
+        if (dataForm.origin !== '' && dataForm.destiny !== '' && dataForm.departure !== '' && dataForm.arrival !== '' && dataForm.passenger !== '') {
             console.log("aaa")
             await filteredFlight(dataForm)
 
@@ -101,21 +103,25 @@ const Header = () => {
                             <div className='input-group col'>
                                 <input
                                     type="date"
-                                    name='departureDate'
+                                    name='departure'
                                     className="form-control"
                                     aria-label="Salida"
                                     aria-describedby="date"
                                     placeholder='Salida'
+                                    onChange={handleChangeInput}
+
                                      />
 
                             </div>
                             <div className='input-group col'>
                                 <input
                                     type="date"
-                                    name='arrivalDate'
+                                    name='arrival'
                                     className="form-control"
                                     aria-label="Regreso"
                                     aria-describedby="date"
+                                    onChange={handleChangeInput}
+
                                      />
 
                             </div>
@@ -124,7 +130,7 @@ const Header = () => {
                             <div className="form-group">
                                 <label for="exampleFormControlSelect1">Pasajeros</label>
                                 <select class="form-control" id="exampleFormControlSelect1"
-                                    name='passenger'>
+                                    name='passenger' required>
                                     <option>-----</option>
                                     <option>1</option>
                                     <option>2</option>
