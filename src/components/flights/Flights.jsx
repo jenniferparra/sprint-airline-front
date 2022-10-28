@@ -34,16 +34,16 @@ const Flights = () => {
       <div className='container-fluid flight-container row g-4'>
 
         {/* contenedor de la parte de equipaje */}
-        <div className='col-sm-8'>
+        <div className='col-sm-8 pt-4 ps-5'>
 
           {/* contenedor de título y botón de cambiar vuelo */}
           <div className='title d-flex justify-content-between'>
             <div>
               <h2><strong>Vuelo de Salida</strong></h2>
-              {flight.map ((element, index) => (
+              {flight.map((element, index) => (
                 <>
-                <h3 className='mt-4'>{element.departure}</h3>
-                <p className='title__country'>{element.origin} a {element.destiny}</p>
+                  <h3 className='mt-4'>{element.departure}</h3>
+                  <p className='title__country'>{element.origin} a {element.destiny}</p>
                 </>
               ))}
 
@@ -56,58 +56,59 @@ const Flights = () => {
 
           {/* contenedor de cuadro blanco */}
           <div className='row rounded g-2 shadow-lg bg-body p-3 d-flex align-items-center'>
-          {flight.map ((element, index) => (
-            <>
-            <p className='col hour d-flex flex-column align-items-center'>{element.timeDeparture}</p>
+            {flight.map((element, index) => (
+              <>
+                <p className='col hour d-flex flex-column align-items-center'>{element.timeDeparture}</p>
 
-            <div className='col scale  '>
-              <p className='scale__text'>{element.duration}</p>
-              <hr></hr>
-              <p className='scale__text'>Sin escala</p>
-            </div>
+                <div className='col scale  '>
+                  <p className='scale__text'>{element.duration}</p>
+                  <hr></hr>
+                  <p className='scale__text'>Sin escala</p>
+                </div>
 
-            <p className='col hour d-flex flex-column align-items-center'>{element.timeArrival}</p>
+                <p className='col hour d-flex flex-column align-items-center'>{element.timeArrival}</p>
 
-            {/* contenedor de cuadro de maleta  */}
-            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'
-            onClick={() => {
-              changeValor("bagA");
-            }}>
-              <img src={briefcase} alt='briefcase icon'></img>
-              <p className='bag__text'>1 objeto personal</p>
-              <p className='bag__price'>$50,000 COP</p>
-            </div>
-            <div className='col me-2 rounded bag d-flex flex-column align-items-center' 
-            onClick={() => {
-              changeValor("bagB");
-            }}>
-              <img src={briefcase} alt='briefcase icon'></img>
-              <p className='bag__text'>Equipaje de mano</p>
-              <p className='bag__price'>$100,000 COP</p>
-            </div>
-            <div className='col bag d-flex rounded flex-column align-items-center'
-            onClick={() => {
-              changeValor("bagC");
-            }}>
-              <img src={briefcase} alt='briefcase icon'></img>
-              <p className='bag__text'>Equipaje 25kg</p>
-              <p className='bag__price'>$200,000 COP</p>
-            </div>
-            </>
-          ))}
-          
+                {/* contenedor de cuadro de maleta  */}
+                <div className='col mx-2 rounded bag d-flex flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagA");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>1 objeto personal</p>
+                  <p className='bag__price'>$50,000 COP</p>
+                </div>
+                <div className='col me-2 rounded bag d-flex flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagB");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>Equipaje de mano</p>
+                  <p className='bag__price'>$100,000 COP</p>
+                </div>
+                <div className='col bag d-flex rounded flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagC");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>Equipaje 25kg</p>
+                  <p className='bag__price'>$200,000 COP</p>
+                </div>
+              </>
+            ))}
+
           </div>
 
-            // vuelo de regreso
           {/* contenedor de título y botón de cambiar vuelo */}
-          <div className='d-flex justify-content-between mt-5'>
+          <div className='title d-flex justify-content-between mt-5'>
             <div>
               <h2><strong>Vuelo de Regreso</strong></h2>
-              <h3 className='mt-4'>Martes 25 Dic 2022</h3>
-              {flight.map ((element, index) => (
-                <p className='title__country'>{element.destiny} a {element.origin}</p>
-
+              {flight.map((element, index) => (
+                <>
+                  <h3 className='mt-4'>{element.arrival}</h3>
+                  <p className='title__country'>{element.destiny} a {element.origin}</p>
+                </>
               ))}
+
               <h6 className='mb-3'>Selección de horarios y equipajes</h6>
             </div>
             <div>
@@ -117,37 +118,52 @@ const Flights = () => {
 
           {/* contenedor de cuadro blanco */}
           <div className='row rounded g-2 shadow-lg bg-body p-3 d-flex align-items-center'>
-            <p className='col hour d-flex flex-column align-items-center'>11 PM</p>
-            <div className='col scale  '>
-              <p className='scale__text'>7 horas</p>
-              <hr></hr>
-              <p className='scale__text'>Sin escala</p>
-            </div>
+            {flight.map((element, index) => (
+              <>
+                <p className='col hour d-flex flex-column align-items-center'>{element.tdepartureBack}</p>
 
-            <p className='col hour d-flex flex-column align-items-center'>6 AM</p>
+                <div className='col scale  '>
+                  <p className='scale__text'>{element.duration}</p>
+                  <hr></hr>
+                  <p className='scale__text'>Sin escala</p>
+                </div>
 
-            {/* contenedor de cuadro de maleta  */}
-            <div className='col mx-2 rounded bag d-flex flex-column align-items-center'>
-              <img src={briefcase} alt='briefcase icon'></img>
-              <p className='bag__text'>1 objeto personal</p>
-              <p className='bag__price'>$50,000 COP</p>
-            </div>
-            <div className='col me-2 rounded bag d-flex flex-column align-items-center'>
-              <img src={briefcase} alt='briefcase icon'></img>
+                <p className='col hour d-flex flex-column align-items-center'>{element.tarrivalBack}</p>
 
-              <p className='bag__text'>Equipaje de mano</p>
-              <p className='bag__price'>$100,000 COP</p>
-            </div>
-            <div className='col bag d-flex rounded flex-column align-items-center'>
-              <img src={briefcase} alt='briefcase icon'></img>
-              <p className='bag__text'>Equipaje 25kg</p>
-              <p className='bag__price'>$200,000 COP</p>
-            </div>
+                {/* contenedor de cuadro de maleta  */}
+                <div className='col mx-2 rounded bag d-flex flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagA");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>1 objeto personal</p>
+                  <p className='bag__price'>$50,000 COP</p>
+                </div>
+                <div className='col me-2 rounded bag d-flex flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagB");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>Equipaje de mano</p>
+                  <p className='bag__price'>$100,000 COP</p>
+                </div>
+                <div className='col bag d-flex rounded flex-column align-items-center'
+                  onClick={() => {
+                    changeValor("bagC");
+                  }}>
+                  <img src={briefcase} alt='briefcase icon'></img>
+                  <p className='bag__text'>Equipaje 25kg</p>
+                  <p className='bag__price'>$200,000 COP</p>
+                </div>
+              </>
+            ))}
+
           </div>
+
         </div>
 
         {/* conteneder de la información del vuelo */}
-        <div className='col-sm-4 column mt-0'>
+        <div className='col-sm-4 column pt-4 pe-5'>
           <h6>Tu reservación</h6>
           {/* contenedor información del vuelo */}
           <div className='reservation rounded'>
@@ -156,22 +172,44 @@ const Flights = () => {
               <p>1 Adulto</p>
             </div>
             <p>Vuelo de salida</p>
-            <div className='row'>
-              <h2 className='col-sm-4'>CO</h2>
-              <h2 className='col-sm-4'>CH</h2>
+            {flight.map((element, index) => (
+              <>
+              <div className='row'>
+              <h2 className='col'>{element.origin}</h2>
+              <h2 className='col'>{element.destiny}</h2>
             </div>
             <div className='row'>
-              <p className='col-sm-4 mt-0 title__country'>05:45 PM</p>
-              <p className='col-sm-4 mt-0 title__country'>06:47 PM</p>
+              <p className='col mt-0 title__country'>{element.timeDeparture}</p>
+              <p className='col mt-0 title__country'>{element.timeArrival}</p>
             </div>
-            <p>Martes, 30 noviembre, 2022</p>
+            <p>{element.departure}</p>
+              </>
+            ))}
+            <p className='mt-5'>Vuelo de regreso</p>
+            {flight.map((element, index) => (
+              <>
+              <div className='row'>
+              <h2 className='col'>{element.destiny}</h2>
+              <h2 className='col'>{element.origin}</h2>
+            </div>
+            <div className='row'>
+              <p className='col mt-0 title__country'>{element.tdepartureBack}</p>
+              <p className='col mt-0 title__country'>{element.tarrivalBack}</p>
+            </div>
+            <p>{element.arrival}</p>
+              </>
+            ))}
+            
           </div>
           <h6 className='mt-5'>Costo de vuelo</h6>
           {/* contenedor costo de vuelo */}
           <div className='reservation rounded'>
+          {flight.map ((element, index) => (
+            <>
             <div className='d-flex justify-content-between'>
+
               <p>Tarifa base</p>
-              <p>$700,000 COP</p>
+              <p>{element.price}</p>
             </div>
             <div className='d-flex justify-content-between'>
               <p>Equipaje</p>
@@ -179,12 +217,14 @@ const Flights = () => {
             </div>
             <div className='d-flex justify-content-between'>
               <p>Total</p>
-              <p>$650,000</p>
+              <p>{(`${element.price}+${valor}`)}</p>
             </div>
+            </>
+          ))}
 
           </div>
           <div class="d-flex justify-content-center "><button onClick={() => navigate('seats')} type="submit" class="btn btn-submit mt-5">Seleccionar asientos</button> </div>
-          
+
         </div>
 
 

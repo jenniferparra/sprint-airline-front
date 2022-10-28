@@ -103,7 +103,7 @@ const Header = () => {
                                     aria-label="Salida"
                                     aria-describedby="date"
                                     placeholder='Salida'
-                                    onChange={handleChangeInput}
+                                    // onChange={handleChangeInput}
                                      />
 
                             </div>
@@ -114,7 +114,7 @@ const Header = () => {
                                     className="form-control"
                                     aria-label="Regreso"
                                     aria-describedby="date"
-                                    onChange={handleChangeInput}
+                                    // onChange={handleChangeInput}
                                      />
 
                             </div>
@@ -123,7 +123,7 @@ const Header = () => {
                             <div className="form-group">
                                 <label for="exampleFormControlSelect1">Pasajeros</label>
                                 <select class="form-control" id="exampleFormControlSelect1"
-                                    name='passenger'>
+                                    name='passenger' required>
                                     <option>-----</option>
                                     <option>1</option>
                                     <option>2</option>
